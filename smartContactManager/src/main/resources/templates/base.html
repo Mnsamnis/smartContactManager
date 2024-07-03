@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html
+  class="light"
+  lang="en"
+  th:fragment="parent(content,title,script)"
+  xmlns:th="http://www.thymeleaf.org"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-th-replace="${title}">SCM</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
+    <link rel="stylesheet" data-th-href="@{'/css/style.css'}" />
+  </head>
+  <body class="dark:bg-gray-900 dark:text-white bg-blue-50">
+  <!-- Navbar -->
+  <div data-th-replace="navbar :: navbar"></div>
+  <!-- main content -->
+  <div class="p-4">
+    <section data-th-replace="${content}"></section>
+  </div>
+
+  <!-- flow bite content -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+  <script data-th-src="@{'/js/script.js'}"></script>
+  <th:block data-th-replace="${script}"></th:block>
+  <script>
+    function updateText() {
+      var element = document.getElementById("scm");
+      if (window.innerWidth <= 600) {
+        element.textContent = "SCM 2.0";
+      } else {
+        element.textContent = "SmartContactManager";
+      }
+    }
+
+    // Initial check
+    updateText();
+
+    // Update text on window resize
+    window.addEventListener("resize", updateText);
+  </script>
+  </body>
+</html>

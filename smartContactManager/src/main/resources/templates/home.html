@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+  lang="en"
+  th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+>
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-   <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
+   <title>Home</title>
 </head>
 <body>
+<div id="content">
+
    <h1>My Home Controller</h1>
    <h2 class="text-red-200" data-th-text="${name}"></h2>
    <h3 data-th-text="${department}"></h3>
@@ -32,7 +35,15 @@
    </a>
 </div>
 
+<div class="grid grid-cols-12 gap-4 p-4">
+    <div class="col-span-4 bg-gray-200 p-4 border">First 4</div>
+    <div class="col-span-8 bg-gray-400 p-4 border">Second 8</div>
+  </div>
+
+</div>
+
+<script></script>
    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
 </body>
 </html>
